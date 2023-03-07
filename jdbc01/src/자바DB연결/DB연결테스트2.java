@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class DB연결테스트 {
+public class DB연결테스트2 {
 
 	public static void main(String[] args) {
 		try {
@@ -28,7 +28,7 @@ public class DB연결테스트 {
 			//SQL부품으로 만들어주어야 함.
 			//PreparedStatement가 SQL부품!!
 			
-			String sql = "insert into hr.MEMBER values ('win2', 'win2', 'win2', 'win2')";
+			String sql = "insert into hr.BBS values (7, '화요일2', '일주 중 2번째 날', 'apple')";
 			PreparedStatement ps = con.prepareStatement(sql);
 			//con부품으로 sql스트링에 있는 것 SQL부품으로 만들어주세요.
 			
