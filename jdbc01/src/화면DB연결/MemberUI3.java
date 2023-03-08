@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 import 자바DB연결.MemberDAO2;
 
-public class MemberUI2 {
+public class MemberUI3 {
 
 	public static void main(String[] args) {
 		JFrame f = new JFrame();
@@ -50,8 +50,16 @@ public class MemberUI2 {
 					JOptionPane.showMessageDialog(f, "id는 필수입력 항목입니다");
 				}
 				
-				MemberDAO2 dao = new MemberDAO2();
-				int result = dao.insert(id, pw, name, tel);
+				MemberDAO3 dao = new MemberDAO3();
+				// 1. 가방을 만들어주세요.
+				MemberVO bag = new MemberVO();
+				// 2. 가방에 값들을 넣어주세요.
+				bag.setId(id);
+				bag.setPw(pw);
+				bag.setName(name);
+				bag.setTel(tel);
+				// 3. 값들이 들어있는 가방을 전달하자.
+				int result = dao.insert(bag);
 				if (result == 1) {
 					JOptionPane.showMessageDialog(f, "회원가입 성공!!" +"\n ============"+ "\n아이디 : " + id 
 							+ " \n패스워드는 : " + pw + " \n이름은 : " + name
@@ -74,7 +82,7 @@ public class MemberUI2 {
 				System.out.println("회원가입처리");
 				String id = t1.getText();
 				
-				MemberDAO2 dao = new MemberDAO2();
+				MemberDAO3 dao = new MemberDAO3();
 				int result = dao.delete(id);
 				if (result == 1) {
 					JOptionPane.showMessageDialog(f, "탈퇴성공");
@@ -95,8 +103,13 @@ public class MemberUI2 {
 				String id = t1.getText();
 				String tel = t4.getText(); // ""
 				
-				MemberDAO2 dao = new MemberDAO2();
-				int result = dao.update(id, tel);;
+				MemberDAO3 dao = new MemberDAO3();
+				MemberVO bag = new MemberVO();
+				
+				bag.setTel(tel);
+				bag.setId(id);
+				
+				int result = dao.update(bag);;
 				if (result == 1) {
 					JOptionPane.showMessageDialog(f, "수정성공");
 				}else {

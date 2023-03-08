@@ -14,7 +14,7 @@ public class BbsUI2 {
 	public static void main(String[] args) {
 		JFrame f = new JFrame();
 		f.setTitle("나의 게시판 화면");
-		f.setSize(710, 500);
+		f.setSize(850, 480);
 		
 		JLabel l1 = new JLabel("<<<< 게시판 글쓰기 화면 >>>>");
 		JLabel l2 = new JLabel("게시판 번호");
