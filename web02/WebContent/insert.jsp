@@ -1,3 +1,5 @@
+<%@page import="multi.MemberDAO3"%>
+<%@page import="multi.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!-- 브라우저가 보낸 데이터를 받아야함 !! ==> java로 짜야함. -->
@@ -11,6 +13,16 @@
     String pw = request.getParameter("pw"); // "1234"
     String name = request.getParameter("name"); // "apple"
     String tel = request.getParameter("tel"); // "010"
+    
+    // 가방을 만들고 값들을 넣어서
+    MemberVO bag = new MemberVO();
+    bag.setId(id);
+    bag.setPw(pw);
+    bag.setName(name);
+    bag.setTel(tel);
+    // dao에게 전달하자
+    MemberDAO3 dao = new MemberDAO3();
+    dao.insert(bag);
     %>
 <!DOCTYPE html>
 <html>
