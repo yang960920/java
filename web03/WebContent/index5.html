@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+ function idCheck(){
+	 id2 = document.getElementById("id");
+	 
+	 id3 = id2.value;
+	 
+	 result = "";
+	 if (id3.length >=5) {
+		result = "5글자 이상입니다 다음을 진행해주세요."
+	} else {
+		result = "5글자 이하입니다 5글자 이상을 입력해주세요."
+	}
+	 divTag = document.getElementById("result");
+	 divTag.innerHTML = result;
+ }
+ 
+ function pwCheck(){
+	 pw1Tag = document.getElementById("pw1");
+	 pw2Tag = document.getElementById("pw2");
+	 
+	 pw1Value = pw1Tag.value
+	 pw2Value = pw2Tag.value
+//	 result = "불일치!!! <img src = img/no.jpg>"
+		location.href = "http://www.daum.net"
+		// location 은 브라우저의 주소 부분을 나타내는 내장된 객체
+		// location의 href 라는 변수에 요청하고 싶은 주소를 넣어주면
+		// 자바스크립트의 브라우저의 주소 부분에 주소를 넣고 엔터까지 쳐서 요청을해줌.
+		
+	 if (pw1Value == pw2Value) {
+		location.href = "http://www.naver.com"
+	}
+	 resultTag = document.getElementById("result");
+	 resultTag.innerHTML = result;
+ }
+</script>
+</head>
+<body>
+아이디 : <input name="id"  id="id" value="test">
+<button onclick = "idCheck()">글자수체크</button><br>
+패스워드 : <input name="pw1"  id="pw1"><br>
+패스워드2 : <input name="pw2"  id="pw2">
+<button onclick = "pwCheck()">패스워드 동일</button>
+<div id = "result" style= "color:red; background:yellow; width: 500px; height: 50px; font-size: 30px"></div>
+</body>
+</html>
