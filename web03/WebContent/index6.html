@@ -9,7 +9,8 @@
 		company1 = document.getElementById("company").value
 		position1 = document.getElementById("position").value
 		gender1 = document.getElementById("gender").value
-		 
+		
+		total = company1 + "회사에 " + position1 + "으로 있는 " + name1 + "입니다."
 		
 		if (gender1 == "남자") {
 			result = "<img src=img/man.jpg width=200 height=200>"
@@ -18,7 +19,7 @@
 		}
 		
 		divTag = document.getElementById("result");		 
-		divTag.innerHTML = result;
+		divTag.innerHTML = total + result;
 	}
 </script>
 </head>
@@ -32,7 +33,7 @@
 <hr color="black">
 <button onclick="serch()">확인</button>
 <div id = "result" 
-style= "color:red; width: 500px; height: 50px; font-size: 30px">
+style= "width: 500px; height: 50px; font-size: 30px">
 </div>
 </body>
 </html>

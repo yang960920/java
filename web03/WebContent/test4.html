@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.6.4.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#b1").click(function() {
+		text = $("#text1").val()
+		$("#result").append(text + "<br>")			
+		//$("#result").html(text + '<br>')			
+		})
+		$("#b2").click(function() {
+		$("#result").append("<img src=img/woman.jpg width=50 height =50><br>")			
+		})
+		$("#b3").click(function() {
+			text = $("#text1").val()
+		$("#result").append("<img src=img/woman.jpg width=50 height =50>")			
+		$("#result").append(text+"<br>")			
+		})
+	})
+</script>
+</head>
+<body>
+입력내용 : <input id=text1>
+<button id=b1>글자추가</button>
+<button id=b2>그림추가</button>
+<button id=b3>글+그림추가</button>
+<div id=result></div>
+</body>
+</html>

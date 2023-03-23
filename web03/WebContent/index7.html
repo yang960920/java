@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src = "js/jquery-3.6.4.js"></script>
+<script type="text/javascript">
+	$(function() {// jqeury 기본 사용법!!
+//		alert("body부분을 dom tree로 ram에 읽어들였음.!!")
+//		document.getElementId("today") ==> $("today")
+		$('#b1').click(function() {
+			alert("b1이 클릭됐음") // 실행할 내용 정의!(함수 정의!!)
+		t1 = $('#text1').text()
+		alert('가지고 온 값은 ' + t1)
+		})
+		$('#b2').click(function() {
+			alert("b2이 클릭됐음") // 실행할 내용 정의!(함수 정의!!)
+		t2 = $('#text2').val()
+		alert('가지고 온 값은 ' + t2)
+		})
+		$('#b3').click(function() {
+			alert('b3클릭함!')
+			//set의 의미!
+			$('#text3').text('내가 들어간다~~야~~~~')
+			$('#text4').val('나의 id는 hahahahahhahahahaha')
+		}) //b3
+	})
+
+
+</script>
+</head>
+<body>
+<h3 id="text1">나는 1번의 텍스트..</h3><br>
+<input id="text2" value = "나는2번의값" ><br>
+
+<h3 id="text3">나는 3번의 텍스트..</h3><br>
+<input id="text4" value = "나는4번의값"><br>
+
+오늘 요일 : <input id="today" value = "목">
+<button id = "b1">주말인지 확인</button>
+<button id = "b2">주말인지 확인2</button>
+<button id = "b3">주말인지 확인3</button>
+</body>
+</html>
