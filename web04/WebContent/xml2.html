@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.6.4.js"></script>
+<script type="text/javascript">
+	$(function() { 
+		$("#b1").click(function() {
+			$.ajax({
+				url: "data/rank2.xml",
+				success: function(doc) {
+					//alert("xml요청 성공>> " + doc)
+					list = $(doc).find('winner')//find 의 결과는 항상 여러개여서 배열로 나타난다.
+			        //alert(list.length)
+					for(i = 0; i < list.length; i++){
+//						console.log($(list[i]).find('name').text())
+//						console.log($(list[i]).find('tel').text())
+						name = $(list[i]).find('name').text()
+						year = $(list[i]).find('year').text()
+						$('#result').append(name+", "+year+"<br>")
+					}//for
+				}//doc
+			})//ajax
+		})//b1
+		$("#b2").click(function() {
+			$.ajax({
+				url : "data/dataset2.xml",
+				success : function(doc) {
+					alert("xml요청 성공 >> " + doc)
+					list = $(doc).find("record") // find의 결과는 항상 여러개 ==> 배열로 만들어짐
+					alert(list.length)
+					for (i = 0; i < list.length; i++) { // 타입 상관없어서 안적어줘도 된다
+						id = $(list[i]).find('id').text()
+						model = $(list[i]).find('model').text()
+						color = $(list[i]).find('color').text()
+						money = $(list[i]).find('money').text()
+
+						$('#result').append(id + ", " + 
+											model + ", " + 
+											color + ", " +  
+											money + "<br>")
+						//받은 데이터를 추출해서 db에 저장해두고 싶은 경우
+						//브라우저--> 웹서버--> db
+						//받은 데이터를 웹서버에게 넘겨주면 됨.
+						//비동기 통신이 필요!!!
+						 //jsp를 호출해서 데이터 받아서 db에 넣어달라는 요청 
+						$.ajax({
+							url: "mock2.jsp",
+							data : {
+								id : id,
+								model : model,
+								color : color,
+								money : money,
+							}, 
+							success: function() {
+								console.log('넣기 성공~!')
+							} //success
+						}) //ajax
+					} //for
+				} //success
+			}) // ajax
+		})
+		$("#b3").click(function() {
+			$.ajax({
+				url : "data/dataset2.xml",
+				success : function(doc) {
+					alert("xml요청 성공 >> " + doc)
+					list = $(doc).find("record") // find의 결과는 항상 여러개 ==> 배열로 만들어짐
+					alert(list.length)
+					for (i = 0; i < list.length; i++) { // 타입 상관없어서 안적어줘도 된다
+						id = $(list[i]).find('id').text()
+						model = $(list[i]).find('model').text()
+						color = $(list[i]).find('color').text()
+						money = $(list[i]).find('money').text()
+
+						$('#result').append(id + ", " + 
+											model + ", " + 
+											color + ", " +  
+											money + "<br>")
+						//받은 데이터를 추출해서 db에 저장해두고 싶은 경우
+						//브라우저--> 웹서버--> db
+						//받은 데이터를 웹서버에게 넘겨주면 됨.
+						//비동기 통신이 필요!!!
+						 //jsp를 호출해서 데이터 받아서 db에 넣어달라는 요청 
+						$.ajax({
+							url: "mockDelete.jsp",
+							data : {
+								id : id,
+								model : model,
+								color : color,
+								money : money,
+							}, 
+							success: function() {
+								console.log('판매 성공~!')
+							} //success
+						}) //ajax
+					} //for
+				} //success
+			}) // ajax
+		})
+	}) //$
+</script>
+</head>
+<body bgcolor="lime">
+<button style='color: blue; background: green' id ="b1">XML받아오기-1</button>
+<button style='color: blue; background: yellow' id ="b2">차 정보 받아오기</button>
+<button style='color: blue; background: yellow' id ="b3">차 팔림</button>
+<hr color="red">
+<div style='color: blue; background: yellow'id="result"></div>
+</body>
+</html>
